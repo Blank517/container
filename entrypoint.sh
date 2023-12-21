@@ -3,8 +3,18 @@
 INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 export INTERNAL_IP
 
+
+cd /opt/
+
+ls -la
+
 # Switch to the container's working directory
 cd /home/container || exit 1
+
+echo "${PATH}"
+echo "${JAVA_HOME}"
+
+
 
 # Print Java version
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0mjava -version\n"
