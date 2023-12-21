@@ -2,7 +2,7 @@ FROM        bitnami/minideb:bookworm
 
 LABEL       author="Blank517" maintainer="Blank517"
 
-RUN         install_packages ca-certificates curl jq
+RUN         install_packages ca-certificates curl locales jq
 
 WORKDIR     /opt/
 
@@ -17,7 +17,7 @@ ENV         LANGUAGE=en_US.UTF-8
 ENV         JAVA_HOME="/opt/graalvm-community-openjdk-17.0.9+9.1" \
             PATH="/opt/graalvm-community-openjdk-17.0.9+9.1/bin:$PATH"
 
-RUN         adduser -h /home/container -S -D container
+RUN         adduser --home /home/container --system --disabled-login --disabled-passowrd container
 
 USER        container
 ENV         USER=container HOME=/home/container
