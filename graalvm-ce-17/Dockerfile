@@ -2,7 +2,7 @@ FROM        bitnami/minideb:bookworm
 
 LABEL       author="Blank517" maintainer="Blank517"
 
-RUN         install_packages ca-certificates curl locales jq ip
+RUN         install_packages ca-certificates curl locales jq iproute2
 
 RUN         locale-gen en_US.UTF-8
 
