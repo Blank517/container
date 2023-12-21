@@ -13,7 +13,7 @@ RUN         rm graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 ENV         JAVA_HOME="/opt/graalvm-community-openjdk-17.0.9+9.1" \
             PATH="/opt/graalvm-community-openjdk-17.0.9+9.1/bin:$PATH"
 
-RUN         useradd -d /home/container -m container
+RUN         adduser -d /home/container -m container
 
 USER        container
 ENV         USER=container HOME=/home/container
