@@ -26,11 +26,17 @@ ENV         JAVA_HOME="/opt/graalvm-community-openjdk-17.0.9+9.1" \
             PATH="/opt/graalvm-community-openjdk-17.0.9+9.1/bin:$PATH"
 
 # Pterodactyl related commands
-RUN         adduser --home /home/container --disabled-password container
+RUN         adduser \
+              --home /home/container \
+              --gecos "" \
+              --disabled-password \
+              --shell /bin/bash \
+              container
 
 USER        container
 
-ENV         USER=container HOME=/home/container
+ENV         USER=container \
+            HOME=/home/container
 
 WORKDIR     /home/container
 
