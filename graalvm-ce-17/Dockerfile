@@ -2,7 +2,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH alpine:3.19
 
 LABEL       author="Blank517" maintainer="Blank517"
 
-RUN         apk add --update --no-cache ca-certificates=20230506-r0 curl=8.5.0-r0 git=2.43.0-r0 jq=1.7.1-r0 wget=1.21.4-r0
+RUN         apk add --update --no-cache ca-certificates=20230506-r0 curl=8.5.0-r0 jq=1.7.1-r0 bash=5.2.21-r0
 
 WORKDIR     /opt/
 
