@@ -6,7 +6,7 @@ RUN         apk add --update --no-cache ca-certificates=20230506-r0 curl=8.5.0-r
 
 WORKDIR     /opt/
 
-RUN         curl -JOLSs --retry 3 graalvm.tar.gz  https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
+RUN         curl -JOLSs --retry 3 https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 RUN         tar xzf graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 RUN         rm graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 
