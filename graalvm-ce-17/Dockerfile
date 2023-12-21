@@ -2,11 +2,13 @@ FROM        bitnami/minideb:bookworm
 
 LABEL       author="Blank517" maintainer="Blank517"
 
-RUN         install_packages ca-certificates curl locales jq
+RUN         install_packages ca-certificates curl locales jq ip
+
+RUN         locale-gen en_US.UTF-8
 
 WORKDIR     /opt/
 
-RUN         curl -JOLSs --retry 3 https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
+RUN         curl -JOLSs --retry 2 https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 RUN         tar xzf graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 RUN         rm graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 
@@ -17,7 +19,7 @@ ENV         LANGUAGE=en_US.UTF-8
 ENV         JAVA_HOME="/opt/graalvm-community-openjdk-17.0.9+9.1" \
             PATH="/opt/graalvm-community-openjdk-17.0.9+9.1/bin:$PATH"
 
-RUN         adduser --home /home/container --system --disabled-login --disabled-password container
+RUN         adduser --home /home/container --disabled-password container
 
 USER        container
 ENV         USER=container HOME=/home/container
