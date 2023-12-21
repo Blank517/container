@@ -4,7 +4,12 @@ INTERNAL_IP=$(ip route get 1 | awk '{print $(NF-2);exit}')
 export INTERNAL_IP
 
 
-cd /opt/
+cd /opt/graalvm-community-openjdk-17.0.9+9.1
+
+ls -la
+
+
+cd /opt/graalvm-community-openjdk-17.0.9+9.1/bin
 
 ls -la
 
