@@ -8,7 +8,7 @@ LABEL       author="Blank517" maintainer="Blank517"
 RUN         install_packages ca-certificates curl locales jq iproute2
 
 # Generate locale
-RUN         echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+RUN         echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
             locale-gen
 
 ENV         LC_ALL=en_US.UTF-8 \
@@ -18,8 +18,8 @@ ENV         LC_ALL=en_US.UTF-8 \
 # Setup GraalVM 17 CE build
 WORKDIR     /opt/
 
-RUN         curl -JOLSs --retry 2 https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz \
-            tar xzf graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz \
+RUN         curl -JOLSs --retry 2 https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.9/graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz && \
+            tar xzf graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz && \
             rm graalvm-community-jdk-17.0.9_linux-aarch64_bin.tar.gz
 
 ENV         JAVA_HOME="/opt/graalvm-community-openjdk-17.0.9+9.1" \
